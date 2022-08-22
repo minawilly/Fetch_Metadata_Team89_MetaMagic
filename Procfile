@@ -1,2 +1,2 @@
-web: python Metamagic/manage.py runserver 0.0.0.0:$PORT 
+web: gunicorn Metamagic.wsgi:application --log-file -
 release: python Metamagic/manage.py migrate 
