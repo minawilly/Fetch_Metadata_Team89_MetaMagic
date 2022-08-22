@@ -9,7 +9,10 @@ lxml==4.9.1
 packaging==21.3
 pikepdf==5.4.2
 Pillow==9.2.0
+postgres==4.0
 psycopg2==2.9.3
+psycopg2-binary==2.9.3
+psycopg2-pool==1.1
 pyparsing==3.0.9
 PyPDF2==2.10.0
 sqlparse==0.4.2
