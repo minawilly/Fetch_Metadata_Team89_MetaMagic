@@ -32,7 +32,8 @@ ALLOWED_HOSTS = [".herokuapp.com", "127.0.0.1"]
 # Application definition
 
 INSTALLED_APPS = [
-     "Authy",
+    'whitenoise.runserver_nostatic',
+    'Authy',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -49,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'Metamagic.urls'
@@ -82,7 +84,7 @@ DATABASES = {
         'NAME': 'postgress',
         'USER': 'Team89',
         'PASSWORD': 'metamagic',
-        'HOST': ['localhost', '.herokuapp.com'],
+        'HOST': 'localhost',
         'PORT': '',
     }
 }
@@ -132,7 +134,9 @@ STATICFILES_DIRS = [
 STATIC_ROOT = BASE_DIR / 'static'
 MEDIA_ROOT = BASE_DIR / 'media'
 MEDIA_URL = '/media/'
-django_heroku.settings(locals())
+# django_heroku.settings(locals())
+WHITENOISE_USE_FINDERS = True
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
